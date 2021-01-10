@@ -53,11 +53,11 @@ class EditMenu:
     def menu(self)->Dict:
         for key,value in self.mod_source_dictionary.items():
             print(f"{key} : \033[90m{value}\033[0m")
-        length = len(self.dict_list[len(self.dict_list)-1][0])+len(self.dict_list[len(self.dict_list)-1][1])+3
-        sys.stdout.write(f"\033[{length}C")
+        self.length = len(self.dict_list[len(self.dict_list)-1][0])+len(self.dict_list[len(self.dict_list)-1][1])+3
+        sys.stdout.write(f"\033[{self.length}C")
         sys.stdout.flush()
         sys.stdout.write(f"\033[A")
-        sys.stdout.flush()   
+        sys.stdout.flush()
    
         while True:
             c = getch()
@@ -102,8 +102,10 @@ class EditMenu:
                     self.current_row+=1
                 sys.stdout.write("\033[B\n")
                 sys.stdout.flush()
-                self.dict_list=[(key.strip(),value) for key,value in self.dict_list]
-                return dict(self.dict_list)
+                self.new_dict_list=[[key.strip(),value] for key,value in self.dict_list]
+                self.dict_list = [[key,value] for key,value in self.mod_source_dictionary.items()]
+                self.current_row = len(self.dict_list) -1
+                return dict(self.new_dict_list)
             else:
                 pass
 
