@@ -6,9 +6,9 @@ Import **editmenu** module from **editmenu** package
  `>>>from editmenu import editmenu`
  
  Use **EditMenu** class to create an instance with a dictionary containing required values to be displayed and edited.
- `>>>mymenu = editmenu.EditMenu({"Name:"Monty","LastName":"Python"})`
+ `>>>mymenu = editmenu.EditMenu({"Name":"Monty","LastName":"Python"})`
 
-Use **menu()** member function to display the menu and prompt the user to make required editing.
+Use **menu()** member function to display the menu and prompt the user to make required editing and the returns the enterd values as a dictionary.
  `>>>mymenu.menu()`
 
 **Notes**
